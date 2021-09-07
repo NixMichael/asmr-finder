@@ -10,7 +10,7 @@
 <body class="bg-gray-700 min-h-screen grid grid-rows-3 text-white">
     <nav class="bg-gray-900 flex justify-end px-3 mb-2">
         <ul class="flex h-full">
-            <a class="hover:text-black hover:bg-white mx-1 p-3" href="/"><li>Search</li></a>
+            <a class="hover:text-black hover:bg-white mx-1 p-3" href="/search"><li>Search</li></a>
             <a class="hover:text-black hover:bg-white mx-1 p-3" href="/register"><li>Register / Login</li></a>
         </ul>
     </nav>
