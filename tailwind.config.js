@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       gridTemplateRows: {
         '3': 'auto 1fr auto'
+      },
+      outline: {
+        blue: '4px solid rgb(17, 24, 39)'
       }
     },
   },

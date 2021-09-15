@@ -20,7 +20,7 @@ class SearchController extends Controller
             [
                 'part' => 'snippet',
                 'q' => "asmr+${qry}",
-                'key' => env('API_KEY'),
+                'key' => env('YOUTUBE_KEY'),
                 'maxResults' => 15
             ]
         );

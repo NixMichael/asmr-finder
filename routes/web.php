@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
-    SearchController
+    SearchController,
+    RegisterController,
+    SessionController,
+    AccountController
 };
 
 /*
@@ -19,6 +22,16 @@ use App\Http\Controllers\{
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('/login', [SessionController::class, 'create'])->middleware('guest')->name('login');
+Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
+
+Route::get('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+Route::get('/myasmr', [AccountController::class, 'myasmr'])->middleware('auth')->name('myasmr');
+Route::get('/account', [AccountController::class, 'account'])->middleware('auth')->name('account');
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/search/results', [SearchController::class, 'show']);
