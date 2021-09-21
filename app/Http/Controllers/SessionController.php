@@ -16,14 +16,14 @@ class SessionController extends Controller
     {
         $attributes = request()->validate([
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:8']
+            'password' => ['required']
         ]);
 
         if (auth()->attempt($attributes)) {
             return redirect('/')->with('success', 'You are now logged in.');
         }
 
-        return back()->withErrors(['email' => 'credentials incorrect']);
+        return back()->withInput()->withErrors(['failedLogin' => 'credentials incorrect']);
     }
 
     public function destroy ()

@@ -17,13 +17,17 @@ class RegisterController extends Controller
         $attributes = request()->validate([
             'name' => ['required', 'max:256'],
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'password' => ['required', 'min:8']
         ]);
 
-        $currentUser = $user::create($attributes);
-
-        auth()->login($currentUser);
-
-        return redirect('/')->with('success', 'Thanks for registering. You are now logged in!');
+        try {
+            $currentUser = $user::create($attributes);
+    
+            auth()->login($currentUser);
+    
+            return redirect('/')->with('success', 'Thanks for registering. You are now logged in!');
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['failedRegistration'=> 'Failed to register your account.']);
+        }
     }
 }
