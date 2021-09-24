@@ -10,14 +10,19 @@ class FavouritesController extends Controller
     public function create ()
     {
 
-        Favourites::create([
-            'user_id' => auth()->id(),
-            'video_id' => request('videoId'),
-            'title' => request('title'),
-            'image' => request('imageUrl'),
-            'creator' => request('creator')
-        ]);
+        if (auth()->check()) {
+            Favourites::create([
+                'user_id' => auth()->id(),
+                'video_id' => request('videoId'),
+                'title' => request('title'),
+                'image' => request('imageUrl'),
+                'creator' => request('creator')
+            ]);
 
-        return back();
+            return back();
+        } else {
+            return redirect('/login')
+                ->with('unauthorised', 'Login to add to your favourites!');
+        }
     }
 }

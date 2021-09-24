@@ -10,14 +10,20 @@ class WatchListController extends Controller
     public function create ()
     {
 
-        WatchList::create([
-            'user_id' => auth()->id(),
-            'video_id' => request('videoId'),
-            'title' => request('title'),
-            'image' => request('imageUrl'),
-            'creator' => request('creator')
-        ]);
+        if (auth()->check()) {
 
-        return back();
+            WatchList::create([
+                'user_id' => auth()->id(),
+                'video_id' => request('videoId'),
+                'title' => request('title'),
+                'image' => request('imageUrl'),
+                'creator' => request('creator')
+            ]);
+
+            return back();
+        } else {
+            return redirect('/login')
+                ->with('unauthorised', 'Login to add to your watchlist!');
+        }
     }
 }
