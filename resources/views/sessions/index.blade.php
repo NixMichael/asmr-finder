@@ -1,6 +1,6 @@
 <x-layout>
 
-    <section class="rounded-xl border-2 border-white w-4/12 mx-auto p-6">
+    <section class="rounded-xl border-2 border-white lg:w-4/12 m-auto p-6">
         <h1 class="text-xl">Log In</h1>
         <form class="flex flex-col items-center space-y-3" action="/login" method="POST">
             @csrf

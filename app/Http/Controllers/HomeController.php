@@ -9,9 +9,9 @@ class HomeController extends Controller
     public function index ()
     {
         if (auth()->check()) {
-            return view('home');
+            return redirect('/myasmr/'.auth()->id());
         } else {
-            return view('register.index');
+            return view('sessions.index');
         }
     }
 }

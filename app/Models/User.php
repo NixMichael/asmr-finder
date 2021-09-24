@@ -8,6 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\{
+    Post,
+    WatchList,
+    Favourites
+};
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -45,5 +51,20 @@ class User extends Authenticatable
     protected function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function posts ()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function watchlist ()
+    {
+        return $this->hasMany(WatchList::class);
+    }
+
+    public function favourites ()
+    {
+        return $this->hasMany(Favourites::class);
     }
 }

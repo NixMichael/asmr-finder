@@ -12,11 +12,11 @@
         <ul class="flex h-full">
             <a class="hover:text-black hover:bg-white mx-1 p-3" href="/search"><li>Search</li></a>
             @auth
-                <a class="hover:text-black hover:bg-white mx-1 p-3" href="/myasmr">My ASMR</a>
+                <a class="hover:text-black hover:bg-white mx-1 p-3" href="/myasmr/{{ auth()->id() }}">My ASMR</a>
                 <a class="hover:text-black hover:bg-white mx-1 p-3" href="/account">My Account</a>
                 <a class="hover:text-black hover:bg-white mx-1 p-3" href="/logout">Logout</a>
             @else
-                <a class="hover:text-black hover:bg-white mx-1 p-3" href="/register"><li>Register / Login</li></a>
+                <a class="hover:text-black hover:bg-white mx-1 p-3" href="/login"><li>Register / Login</li></a>
             @endauth
         </ul>
     </nav>

@@ -9,15 +9,29 @@
         @if (isset($content) && is_array($content))
         @foreach ($content as $video)
             @if (isset($video->id->videoId))
-                <article class="w-full lg:w-5/12 flex flex-col items-center my-3 bg-gray-800 hover:bg-gray-900 cursor-pointer rounded-md">
+                <article class="w-full lg:w-5/12 flex flex-col items-center my-3 bg-gray-800 hover:bg-gray-900 rounded-xl py-3">
+                    <h4>{{ $video->snippet->channelTitle }}</h4>
                     <h4 class="my-4 lg:h-12">{!! $video->snippet->title !!}</h4>
-                    <a target="_blank" href="https://youtube.com/watch?v={{ $video->id->videoId }}">
-                        <div class="w-full relative" style="padding-top: 52.25%">
-                            {{-- <div class="w-full h-1/3 border bg-center" style="background: url('{{ $video->snippet->thumbnails->high->url }}')"> --}}
-                            {{-- <img class="w-full border" style="height: 300px" src="{{ $video->snippet->thumbnails->high->url }}" alt="" /> --}}
-                            <div class="absolute w-full h-full bg-no-repeat bg-center rounded-b-md" style="margin-top: -52.25%; background-image: url('{{ $video->snippet->thumbnails->high->url }}')">
+
+                    <a class="w-full cursor-pointer my-2" target="_blank" href="https://youtube.com/watch?v={{ $video->id->videoId }}">
+                        <div style="
+                            position: relative;
+                            width: 100%;
+                            padding-top: 56.25%; 
+                            background-image: url('{{ $video->snippet->thumbnails->high->url }}');
+                            background-position: center;
+                            background-size: cover;
+                        ">
                         </div>
+                        {{-- <div style="width: 100%; height: 60px; background: url('{{ $video->image }}')"></div> --}}
+                        {{-- <img src="{{ $video->image }}" alt="{{ $video->title }}"> --}}
                     </a>
+
+                    <div class="w-full flex justify-around">
+                        <x-account-form name="watchlist" :video="$video" />
+                        <x-account-form name="favourite" :video="$video" />
+                    </div>
+
                 </article>
             @endif
         @endforeach

@@ -1,5 +1,6 @@
 <x-layout>
-    <section>
-        <h2>MY ASMR</h2>
+    <section class="mx-8">
+        <x-favourites-list :favourites="$favourites" />
+        <x-watchlater-list :watchlater="$watchlist" />
     </section>
 </x-layout>
