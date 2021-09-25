@@ -16,7 +16,7 @@
                 {{-- "> --}}
             />
         @endif
-        <div class="text-xs text-left mb-3 px-4 pr-20 max-h-8 overflow-hidden overflow-ellipsis">{{ $video->title }}</div>
+        <div class="text-xs text-left mb-3 px-4 pr-20 h-8 overflow-hidden overflow-ellipsis">{{ $video->title }}</div>
         <a class="w-full" href="https://youtube.com/watch?v={{ $video->video_id }}">
             <div style="
                 position: relative;

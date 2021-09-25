@@ -7,7 +7,7 @@
         <p class="my-8">No favourites yet.</p>
     @else
         @foreach($favourites as $video)
-            <x-display-videos :video="$video" />
+            <x-video-list-card :video="$video" />
         @endforeach
     @endif
 </div>

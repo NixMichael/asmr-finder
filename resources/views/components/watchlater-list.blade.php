@@ -7,7 +7,7 @@
         <p class="my-8">Nothing saved yet.</p>
     @else
         @foreach($watchlater as $video)
-            <x-display-videos :video="$video" />
+            <x-video-list-card :video="$video" />
         @endforeach
     @endif
 </div>
