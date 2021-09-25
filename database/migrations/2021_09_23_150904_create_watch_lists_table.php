@@ -19,7 +19,8 @@ class CreateWatchListsTable extends Migration
             $table->string('video_id');
             $table->string('title');
             $table->string('image');
-            $table->string('creator');
+            $table->string('creator_id');
+            $table->string('creator_image');
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@ class AccountController extends Controller
 {
     public function myasmr (User $user)
     {
+
         return view('account.myasmr', [
             'watchlist' => $user->watchlist,
             'favourites' => $user->favourites

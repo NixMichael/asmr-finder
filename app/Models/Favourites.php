@@ -10,7 +10,7 @@ class Favourites extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'video_id', 'title', 'image', 'creator'];
+    protected $fillable = ['user_id', 'video_id', 'title', 'image', 'creator_id', 'creator_image'];
 
     public function users ()
     {

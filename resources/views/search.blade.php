@@ -5,13 +5,14 @@
     </form>
 
     <div class="w-11/12 lg:w-5/6 mx-auto flex flex-col lg:flex-row flex-wrap justify-around">
-        
+
         @if (isset($content) && is_array($content))
         @foreach ($content as $video)
             @if (isset($video->id->videoId))
-                <article class="w-full lg:w-5/12 flex flex-col items-center my-3 bg-gray-800 hover:bg-gray-900 rounded-xl py-3">
-                    <h4>{{ $video->snippet->channelTitle }}</h4>
-                    <h4 class="my-4 lg:h-12">{!! $video->snippet->title !!}</h4>
+                <article class="w-full lg:w-5/12 flex flex-col items-center my-3 bg-gray-800 hover:bg-gray-900 rounded-xl pb-3 relative">
+                    {{-- <div class="absolute -top-4 -right-4 w-20 h-20 border-2 border-white rounded-full" style="background: url('{{ $channelImage }}');"></div> --}}
+                    <h4 class="bg-white bg-opacity-5 rounded-t-xl py-2 w-full text-2xl">{{ $video->snippet->channelTitle }}</h4>
+                    <h4 class="mx-auto w-10/12 my-4 lg:h-6">{!! $video->snippet->title !!}</h4>
 
                     <a class="w-full cursor-pointer my-2" target="_blank" href="https://youtube.com/watch?v={{ $video->id->videoId }}">
                         <div style="
